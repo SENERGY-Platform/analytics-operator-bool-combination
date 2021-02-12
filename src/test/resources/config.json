@@ -1,0 +1,22 @@
+{
+  "config": {
+    "input": "true"
+  },
+  "inputTopics": [
+    {
+      "Name": "test",
+      "FilterType": "DeviceId",
+      "FilterValue": "1,2",
+      "Mappings": [
+        {
+          "Dest": "tiltStatus",
+          "Source": "value.reading.value"
+        },
+        {
+          "Dest": "windowStatus",
+          "Source": "value.reading.value2"
+        }
+      ]
+    }
+  ]
+}
