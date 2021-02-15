@@ -41,13 +41,15 @@ public class BoolCombintationTest {
         boolCombination.configMessage(message);
         int index = 0;
         String expected []  = new String []{"closed","tilted","opened"};
+        String devices []  = new String []{"1-null","2-null","2-null"};
         for(Object msg : messages){
             DeviceMessageModel deviceMessageModel = JSONHelper.getObjectFromJSONString(msg.toString(), DeviceMessageModel.class);
             assert deviceMessageModel != null;
             model.putMessage(topicName, Helper.deviceToInputMessageModel(deviceMessageModel, topicName));
             message.setMessage(model);
             boolCombination.run(message);
-            Assert.assertEquals(expected[index++], message.getMessage().getOutputMessage().getAnalytics().get("status"));
+            Assert.assertEquals(expected[index], message.getMessage().getOutputMessage().getAnalytics().get("status"));
+            Assert.assertEquals(devices[index++], message.getMessage().getOutputMessage().getAnalytics().get("device"));
         }
     }
 }

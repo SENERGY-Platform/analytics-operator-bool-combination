@@ -36,9 +36,11 @@ public class BoolCombination extends BaseOperator {
         String windowStatus = "";
         Boolean tiltStatus = false;
         String status = null;
+        String device = null;
         try {
             windowStatus = message.getFlexInput("windowStatus").getString();
             tiltStatus = Boolean.parseBoolean(message.getFlexInput("tiltStatus").getString());
+            device = message.getFlexInput("windowStatus").getCurrentFilterId();
         } catch (NoValueException e) {
             e.printStackTrace();
         }
@@ -50,6 +52,6 @@ public class BoolCombination extends BaseOperator {
             status="closed";
         }
         message.output("status", status);
-
+        message.output("device", device);
     }
 }
