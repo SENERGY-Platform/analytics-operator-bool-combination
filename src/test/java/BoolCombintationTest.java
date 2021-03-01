@@ -40,8 +40,8 @@ public class BoolCombintationTest {
         BoolCombination boolCombination = new BoolCombination();
         boolCombination.configMessage(message);
         int index = 0;
-        String expected []  = new String []{"closed","tilted","opened"};
-        String devices []  = new String []{"1-null","2-null","2-null"};
+        String[] expected = new String []{null,"tilted","opened","closed"};
+        String[] devices = new String []{null,"2","2","2"};
         for(Object msg : messages){
             DeviceMessageModel deviceMessageModel = JSONHelper.getObjectFromJSONString(msg.toString(), DeviceMessageModel.class);
             assert deviceMessageModel != null;

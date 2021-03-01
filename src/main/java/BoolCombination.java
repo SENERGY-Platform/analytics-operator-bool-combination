@@ -34,7 +34,7 @@ public class BoolCombination extends BaseOperator {
     @Override
     public void run(Message message) {
         String windowStatus = "";
-        Boolean tiltStatus = false;
+        boolean tiltStatus = false;
         String status = null;
         String device = null;
         try {
@@ -48,9 +48,12 @@ public class BoolCombination extends BaseOperator {
             status="tilted";
         } else if (windowStatus.equals(windowOpen) && !tiltStatus){
             status="opened";
-        } else{
+        } else if (windowStatus.equals(windowClosed) && tiltStatus){
+            return;
+        } else if (windowStatus.equals(windowClosed) && !tiltStatus){
             status="closed";
         }
+
         message.output("status", status);
         message.output("device", device);
     }
