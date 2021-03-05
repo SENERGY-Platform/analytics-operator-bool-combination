@@ -18,8 +18,12 @@ import org.infai.ses.senergy.exceptions.NoValueException;
 import org.infai.ses.senergy.operators.BaseOperator;
 import org.infai.ses.senergy.operators.Message;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BoolCombination extends BaseOperator {
 
+    private final Map<String, String> map=new HashMap<>();
     final String windowOpen = "Door/Window Open";
     final String windowClosed = "Door/Window Closed";
 
@@ -53,8 +57,10 @@ public class BoolCombination extends BaseOperator {
         } else if (windowStatus.equals(windowClosed) && !tiltStatus){
             status="closed";
         }
-
-        message.output("status", status);
-        message.output("device", device);
+        if (!map.containsKey(device) || !map.get(device).equals(status)) {
+            map.put(device, status);
+            message.output("status", status);
+            message.output("device", device);
+        }
     }
 }

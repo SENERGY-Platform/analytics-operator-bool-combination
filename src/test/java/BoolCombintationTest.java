@@ -36,13 +36,14 @@ public class BoolCombintationTest {
         String topicName = config.getInputTopicsConfigs().get(0).getName();
         ConfigProvider.setConfig(config);
         Message message = new Message();
-        MessageModel model =  new MessageModel();
+
         BoolCombination boolCombination = new BoolCombination();
         boolCombination.configMessage(message);
         int index = 0;
-        String[] expected = new String []{null,"tilted","opened","closed"};
-        String[] devices = new String []{null,"2","2","2"};
+        String[] expected = new String []{null,"tilted","opened","closed",null};
+        String[] devices = new String []{null,"2","2","2",null};
         for(Object msg : messages){
+            MessageModel model =  new MessageModel();
             DeviceMessageModel deviceMessageModel = JSONHelper.getObjectFromJSONString(msg.toString(), DeviceMessageModel.class);
             assert deviceMessageModel != null;
             model.putMessage(topicName, Helper.deviceToInputMessageModel(deviceMessageModel, topicName));

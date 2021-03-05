@@ -34,5 +34,14 @@
         "value2": "Door/Window Closed"
       }
     }
+  },
+  {
+    "device_id": "2",
+    "value": {
+      "reading": {
+        "value": "false",
+        "value2": "Door/Window Closed"
+      }
+    }
   }
 ]
