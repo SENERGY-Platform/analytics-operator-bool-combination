@@ -43,8 +43,8 @@ public class BoolCombination extends BaseOperator {
 
     @Override
     public void run(Message message) {
-        message.output("status", null); // If not overwritten, old values might be used
-        message.output("device", null);
+        //message.output("status", null); // If not overwritten, old values might be used
+        //message.output("device", null);
         Set<Map.Entry<String, String>> windowEntries = message.getFlexInput("windowStatus").getFilterIdValueMap(String.class).entrySet();
         Set<Map.Entry<String, String>> tiltEntries = message.getFlexInput("tiltStatus").getFilterIdValueMap(String.class).entrySet();
 
