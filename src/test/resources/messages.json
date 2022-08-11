@@ -43,5 +43,41 @@
         "value2": "Door/Window Closed"
       }
     }
+  },
+  {
+    "device_id": "3",
+    "value": {
+      "reading": {
+        "value": "false",
+        "value2": 22
+      }
+    }
+  },
+  {
+    "device_id": "3",
+    "value": {
+      "reading": {
+        "value": "true",
+        "value2": 23
+      }
+    }
+  },
+  {
+    "device_id": "3",
+    "value": {
+      "reading": {
+        "value": false,
+        "value2": 22
+      }
+    }
+  },
+  {
+    "device_id": "3",
+    "value": {
+      "reading": {
+        "value": true,
+        "value2": 22
+      }
+    }
   }
 ]
